@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lilothah Enakathil — Level 6 Shepherd Druid</title><style>
+:root{--bg:#101114;--panel:#191b20;--panel2:#20242b;--ink:#f2efe8;--muted:#b9b1a5;--line:#353b45;--accent:#d69b4f;--accent2:#78c092;--bad:#cf6679;--blue:#8ab4f8;--shadow:0 10px 25px #0008}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#111217,#171a20 45%,#101114);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{color:var(--blue)}.hero{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;background:#0c0d10ee;border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}h1{font-size:clamp(1.8rem,4vw,3.2rem);line-height:1;margin:.1rem 0;color:var(--accent)}h2{margin:0 0 .75rem;color:var(--accent);font-size:1.15rem;letter-spacing:.03em;text-transform:uppercase}h3{margin:.15rem 0 .4rem;color:var(--ink)}p{margin:.35rem 0}.muted,small{color:var(--muted)}main{max-width:1400px;margin:0 auto;padding:1rem}.status-card{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}.status{padding:.35rem .55rem;border-radius:999px;border:1px solid var(--bad);color:#ffdfe5;background:#221217}.status.good{border-color:var(--accent2);color:#dff8e8;background:#102017}select,button{font:inherit;border-radius:8px;border:1px solid var(--line);background:#252a32;color:var(--ink);padding:.38rem .55rem}button{cursor:pointer;transition:.12s transform,.12s background}.actions button,.button-row button,.button-grid button{margin:.15rem}button:hover{background:#303746;transform:translateY(-1px)}button.primary{border-color:var(--accent);background:#3b2a16}.grid{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:1rem;margin-bottom:1rem}.top-grid{grid-template-columns:1.3fr .85fr .85fr}.card,.summon{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:14px;padding:1rem;box-shadow:var(--shadow)}.wide{grid-column:span 1}.stats{display:grid;grid-template-columns:repeat(4,minmax(110px,1fr));gap:.6rem}.stats div{background:#1116;border:1px solid var(--line);border-radius:10px;padding:.55rem}.stats b{display:block;color:var(--accent)}.stats span{display:block}.button-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.3rem}.skill-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.3rem}.stack{display:flex;flex-direction:column;gap:.55rem}.row{display:flex;gap:.8rem;align-items:center;justify-content:space-between;background:#1118;border:1px solid var(--line);border-radius:10px;padding:.6rem}.row>div:first-child{min-width:0}.actions{display:flex;gap:.25rem;flex-wrap:wrap;justify-content:flex-end}.button-row{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.65rem}.notes{white-space:pre-wrap;color:var(--muted)}.summon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.meta{font-size:.9rem;color:var(--muted);margin-bottom:.4rem}.tags{display:flex;gap:.35rem;flex-wrap:wrap;margin:.3rem 0}.tag{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:.12rem .4rem;color:var(--muted)}#toast{position:fixed;right:1rem;bottom:1rem;max-width:460px;background:#0d0f12;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:10px;padding:.8rem;display:none}#toast.good{border-color:var(--accent2)}#toast.bad{border-color:var(--bad)}.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.warning{border-color:#6d5523;background:#1d180e}.char-nav{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0}.char-nav a{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1rem;text-decoration:none;min-width:260px}.char-nav a:hover{border-color:var(--accent)}@media(max-width:1100px){.grid,.top-grid,.summon-grid,.two{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.skill-grid{grid-template-columns:1fr 1fr}.hero{position:static;align-items:flex-start;flex-direction:column}.status-card{justify-content:flex-start}}@media print{.hero{position:static}.status-card,button,#toast{display:none}.grid,.top-grid,.summon-grid,.two{display:block}.card,.summon{break-inside:avoid;margin:0 0 10px;background:white;color:black;box-shadow:none}.card h2,.summon h3,h1{color:black}body{background:white;color:black}.row{background:white}.muted,small,.meta,.notes{color:#333}}
+</style></head>
+<body>
+<header class="hero"><div><h1 id="char-title">Lilothah Enakathil — Level 6 Shepherd Druid</h1><p id="char-subtitle"></p></div><div class="status-card"><div id="bridge-status" class="status bad">Beyond20 bridge not detected</div><label>Roll mode <select id="roll-mode"><option value="0">Normal</option><option value="3">Advantage</option><option value="4">Disadvantage</option><option value="1">Roll twice</option><option value="2">Ask in Roll20</option></select></label><label>Whisper <select id="whisper-mode"><option value="0">Public</option><option value="1">Whisper GM</option><option value="2">Ask in Roll20</option></select></label></div></header>
+<main>
+<section class="grid top-grid"><article class="card wide"><h2>Core</h2><div id="core-stats" class="stats"></div><div class="button-row"><button data-roll="initiative" class="primary">Initiative</button><span id="core-buttons"></span></div></article><article class="card"><h2>Abilities</h2><div id="abilities" class="button-grid"></div></article><article class="card"><h2>Saves</h2><div id="saves" class="button-grid"></div></article></section>
+<section class="grid"><article class="card wide"><h2>Skills</h2><div id="skills" class="skill-grid"></div></article><article class="card"><h2>Attacks / Healing</h2><div id="attacks" class="stack"></div></article><article class="card"><h2>Traits / Features</h2><div id="traits" class="stack"></div></article></section>
+<section class="grid"><article class="card wide"><h2>Spells / Powers</h2><div id="spells" class="stack"></div></article><article class="card"><h2>Equipment / Notes</h2><div id="equipment" class="notes"></div></article></section>
+<section class="card"><h2>Summons & Conjuration</h2><div class="summon-controls"><label>Summon Undead spell level <select id="undead-level"><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></label></div><div id="summons" class="summon-grid"></div></section>
+</main><div id="toast" aria-live="polite"></div><script>
+const ROLL = { NORMAL:0, DOUBLE:1, QUERY:2, ADV:3, DIS:4 };
+const WHISPER = { NO:0, YES:1, QUERY:2, HIDE:3 };
+let bridgeReady = false;
+const $ = (id)=>document.getElementById(id);
+function esc(s){return String(s ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function toast(msg, good=true){const t=$('toast'); if(!t) return; t.textContent=msg; t.className=good?'good':'bad'; t.style.display='block'; clearTimeout(t._timer); t._timer=setTimeout(()=>t.style.display='none',4200);}
+function rollMode(){return Number($('roll-mode')?.value ?? 0)}
+function whisper(){return Number($('whisper-mode')?.value ?? 0)}
+function setStatus(ok){bridgeReady=ok; const s=$('bridge-status'); if(!s) return; s.classList.toggle('good',ok); s.classList.toggle('bad',!ok); s.textContent=ok?'Beyond20 bridge detected':'Beyond20 bridge not detected';}
+document.addEventListener('Beyond20_Party20Ready',()=>setStatus(true));
+document.addEventListener('Beyond20_Brindle20Ready',()=>setStatus(true));
+document.addEventListener('Beyond20_RollResult',(e)=>{const r=(e.detail||[])[0]||{}; if(r.error) toast(r.error,false); else toast('Sent to '+((r.vtt||['VTT']).join(', ')),true)});
+function requestBridgeReady(){ document.dispatchEvent(new CustomEvent('Beyond20_RequestParty20Ready')); }
+let _bridgeProbeCount=0; const _bridgeProbe=setInterval(()=>{ if(bridgeReady || _bridgeProbeCount++ > 20) return clearInterval(_bridgeProbe); requestBridgeReady(); }, 250);
+requestBridgeReady();
+function send(request, character){
+  if(!bridgeReady) toast('Beyond20 bridge not detected. Load the Party20 extension and open this page through localhost or GitHub Pages.',false);
+  request.action='roll';
+  request.character=request.character || character || window.PARTY20_CHARACTER || {name:'Party20 Character',type:'Character',settings:{}};
+  request.advantage = request.advantage ?? rollMode();
+  request.whisper = request.whisper ?? whisper();
+  document.dispatchEvent(new CustomEvent('Beyond20_SendMessage',{detail:[request]}));
+}
+function characterFor(name,type='Character'){return {name, type, settings:{}}}
+function traitReq(name, source, description, character){send({type:'trait', name, source, 'source-type':'Feature', description, advantage:ROLL.NORMAL}, character)}
+function rollCheck(kind, data, character){
+  if(kind==='initiative') return send({type:'initiative', initiative:data.modifier}, character);
+  if(kind==='ability') return send({type:'ability', name:data.name, ability:data.ability||data.name, modifier:data.modifier}, character);
+  if(kind==='save') return send({type:'saving-throw', name:data.name, ability:data.ability, modifier:data.modifier}, character);
+  if(kind==='skill') return send({type:'skill', skill:data.name, ability:data.ability, modifier:data.modifier}, character);
+}
+function attackReq(a, character, prefix='', opts={}){
+  send({type:'attack', name:prefix+a.name, 'to-hit':a.toHit, rollAttack:true, rollDamage:true, damages:[a.damage], 'damage-types':[a.type], 'critical-damages':[a.crit||a.damage?.replace(/\s*[+\-].*/, '')||''], 'critical-damage-types':[a.type], range:a.range||'', description:a.description||'', advantage:opts.advantage ?? undefined}, character);
+}
+function spellCard(s, character){send({type:'spell-card', name:s.name, 'level-school':s.level, 'casting-time':s.time, range:s.range, duration:s.duration, components:s.components, ritual:!!s.ritual, concentration:!!s.concentration, description:s.desc||s.description||'', advantage:ROLL.NORMAL}, character)}
+function spellRoll(s, character){send({type:'spell-attack', name:s.name, 'level-school':s.level, 'casting-time':s.time, range:s.range, duration:s.duration, components:s.components, ritual:!!s.ritual, concentration:!!s.concentration, description:s.desc||'', rollAttack:!!s.toHit, 'to-hit':s.toHit, rollDamage:!!s.damage, damages:s.damage?[s.damage]:[], 'damage-types':s.type?[s.type]:[], 'critical-damages':s.crit?[s.crit]:[], 'critical-damage-types':s.type?[s.type]:[], 'save-dc':s.saveDC, 'save-ability':s.save}, character)}
+function row(title, sub, buttons){return `<div class="row"><div><b>${esc(title)}</b>${sub?`<br><small>${esc(sub)}</small>`:''}</div><div class="actions">${buttons}</div></div>`}
+function renderSheet(data){
+  window.PARTY20_CHARACTER = characterFor(data.name);
+  document.title = data.title || data.name;
+  $('char-title').textContent = data.name;
+  $('char-subtitle').textContent = data.subtitle || '';
+  $('core-stats').innerHTML = data.core.map(x=>`<div><b>${esc(x.label)}</b><span>${esc(x.value)}</span></div>`).join('');
+  $('core-buttons').innerHTML = (data.coreButtons||[]).map(k=>`<button data-trait="${esc(k)}" class="primary">${esc(data.traits[k]?.name||k)}</button>`).join('');
+  $('abilities').innerHTML = data.abilities.map(a=>`<button data-check="ability" data-name="${esc(a.name)}" data-ability="${esc(a.name)}" data-modifier="${esc(a.modifier)}">${esc(a.name)} ${esc(a.score)} (${esc(a.modifier)})</button>`).join('');
+  $('saves').innerHTML = data.saves.map(a=>`<button data-check="save" data-name="${esc(a.name)}" data-ability="${esc(a.ability)}" data-modifier="${esc(a.modifier)}">${esc(a.name)} ${esc(a.modifier)}</button>`).join('');
+  $('skills').innerHTML = data.skills.map(a=>`<button data-check="skill" data-name="${esc(a.name)}" data-ability="${esc(a.ability)}" data-modifier="${esc(a.modifier)}">${esc(a.name)} ${esc(a.modifier)}</button>`).join('');
+  $('attacks').innerHTML = data.attacks.map((a,i)=>row(a.name, `${a.toHit}; ${a.damage} ${a.type}; ${a.range||''}`, `<button data-attack="${i}">Roll</button>${a.advantageButton?`<button data-attack="${i}" data-adv="3">Adv</button>`:''}${a.disButton?`<button data-attack="${i}" data-adv="4">Dis</button>`:''}`)).join('');
+  $('traits').innerHTML = Object.entries(data.traits).filter(([k,t])=>!data.coreButtons?.includes(k)).map(([k,t])=>row(t.name, t.source||'', `<button data-trait="${esc(k)}">Send</button>`)).join('');
+  $('spells').innerHTML = (data.spells||[]).map((s,i)=>row(s.name, `${s.level||''}; ${s.time||''}; ${s.range||''}; ${s.duration||''}`, `<button data-spellcard="${i}">Card</button>${s.damage||s.toHit?`<button data-spellroll="${i}">Roll</button>`:''}`)).join('') || '<p class="muted">No spells or rituals on this sheet.</p>';
+  $('equipment').textContent = data.equipment || '';
+  renderSummons(data);
+  document.body.addEventListener('click', ev=>{
+    const b=ev.target.closest('button'); if(!b) return;
+    if(b.dataset.roll==='initiative') return rollCheck('initiative',{modifier:data.initiative}, characterFor(data.name));
+    if(b.dataset.check) return rollCheck(b.dataset.check,{name:b.dataset.name, ability:b.dataset.ability, modifier:b.dataset.modifier}, characterFor(data.name));
+    if(b.dataset.attack) return attackReq(data.attacks[Number(b.dataset.attack)], characterFor(data.name), '', {advantage: b.dataset.adv?Number(b.dataset.adv):undefined});
+    if(b.dataset.trait){const t=data.traits[b.dataset.trait]; return traitReq(t.name,t.source,t.description, characterFor(data.name));}
+    if(b.dataset.spellcard) return spellCard(data.spells[Number(b.dataset.spellcard)], characterFor(data.name));
+    if(b.dataset.spellroll) return spellRoll(data.spells[Number(b.dataset.spellroll)], characterFor(data.name));
+    if(b.dataset.summonCard) return sendSummonCard(data, Number(b.dataset.summonCard));
+    if(b.dataset.summonAttack) return sendSummonAttack(data, Number(b.dataset.summonAttack), false);
+    if(b.dataset.summonMulti) return sendSummonAttack(data, Number(b.dataset.summonMulti), true);
+    if(b.dataset.summonSkill) { const s=data.summons[Number(b.dataset.summonSkill)]; const skill=s.skills[b.dataset.skillName]; return rollCheck('skill',{name:`${s.name} ${b.dataset.skillName}`,ability:skill.ability,modifier:skill.modifier}, characterFor(s.name,'Creature')); }
+  }, {once:false});
+  const lvl=$('undead-level'); if(lvl) lvl.addEventListener('change',()=>renderSummons(data));
+  setTimeout(()=>{if(!bridgeReady) toast('Bridge not detected yet. Use the Party20 extension and open this page from http://localhost or https://anostus.github.io/.',false)},1000);
+}
+function renderSummons(data){
+  const box=$('summons'); if(!box) return;
+  const summons=data.summons||[];
+  const undeadLevelSelector = $('undead-level');
+  if(undeadLevelSelector) undeadLevelSelector.closest('.summon-controls').style.display = summons.some(s=>s.kind==='undead')?'block':'none';
+  box.innerHTML = summons.map((s,idx)=>{
+    const d = summonDynamic(s);
+    const skills = s.skills ? Object.keys(s.skills).map(k=>`<button data-summon-skill="${idx}" data-skill-name="${esc(k)}">${esc(k)}</button>`).join('') : '';
+    const attackBtns = s.attack ? `<button data-summon-attack="${idx}">${esc(s.attack.name)}</button>${s.kind==='undead'?`<button data-summon-multi="${idx}">Multiattack</button>`:''}` : '';
+    return `<div class="summon"><h3>${esc(s.name)}</h3><div class="meta">${esc(d.meta)}</div><div class="tags">${(s.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div><p class="muted">${esc(d.short||s.short||'')}</p><div class="actions"><button data-summon-card="${idx}">Stat/Traits</button>${skills}${attackBtns}</div></div>`
+  }).join('') || '<p class="muted">No summons or familiars listed.</p>';
+}
+function summonDynamic(s){
+  if(s.kind==='undead'){
+    const lvl=Number($('undead-level')?.value || 3);
+    return {ac:11+lvl, hp:30+10*(lvl-3), multi:Math.floor(lvl/2), meta:`AC ${11+lvl}; HP ${30+10*(lvl-3)}; speed ${s.speed}; multiattack ${Math.floor(lvl/2)}; spell level ${lvl}`, short:s.short};
+  }
+  return {meta:s.meta||'', short:s.short};
+}
+function sendSummonCard(data, idx){
+  const s=data.summons[idx]; const d=summonDynamic(s);
+  let desc = s.description || '';
+  if(s.kind==='undead'){
+    desc = `Medium undead. ${d.meta}. STR 12 (+1), DEX 16 (+3), CON 15 (+2), INT 4 (-3), WIS 10 (+0), CHA 9 (-1). Damage immunities: necrotic, poison. Condition immunities: exhaustion, frightened, paralyzed, poisoned. Senses darkvision 60 ft, passive Perception 10. Languages: understands the languages ${data.name} speaks. Proficiency bonus equals summoner's. ${s.description||''}`;
+  }
+  traitReq(s.name, s.source||'Summon/Familiar', desc, characterFor(s.name,'Creature'));
+}
+function sendSummonAttack(data, idx, multi){
+  const s=data.summons[idx]; if(!s.attack) return;
+  const d=summonDynamic(s); let a={...s.attack};
+  if(s.kind==='undead'){
+    const lvl=Number($('undead-level')?.value || 3);
+    a.damage = `${s.attack.base} + ${3+lvl}`;
+    a.crit = s.attack.base;
+  }
+  const count=multi?(d.multi||1):1;
+  for(let i=0;i<count;i++) setTimeout(()=>attackReq(a, characterFor(s.name,'Creature'), count>1?`${i+1}/${count} `:''), i*180);
+}
+</script><script>
+const LILOTHAH = {
+  name:'Lilothah Enakathil',
+  title:'Lilothah Enakathil — Level 6 Shepherd Druid',
+  subtitle:'Level 6 Drow Druid — Circle of the Shepherd · Outlander (Exile) · chaotic neutral leaning chaotic good',
+  initiative:'+3',
+  core:[
+    {label:'AC',value:'16 · leather armor + shield'},
+    {label:'HP',value:'45'},
+    {label:'Hit Dice',value:'6d8'},
+    {label:'Speed',value:'30 ft'},
+    {label:'Prof',value:'+3'},
+    {label:'Passive Perception',value:'17'},
+    {label:'Spell Save DC',value:'15'},
+    {label:'Spell Attack',value:'+7'}
+  ],
+  abilities:[['STR',8,'-1'],['DEX',16,'+3'],['CON',14,'+2'],['INT',9,'-1'],['WIS',18,'+4'],['CHA',10,'+0']].map(([name,score,modifier])=>({name,score,modifier})),
+  saves:[['Strength','STR','-1'],['Dexterity','DEX','+3'],['Constitution','CON','+2'],['Intelligence','INT','+2'],['Wisdom','WIS','+7'],['Charisma','CHA','+0']].map(([name,ability,modifier])=>({name,ability,modifier})),
+  skills:[
+    ['Athletics','STR','+2'],['Acrobatics','DEX','+3'],['Sleight of Hand','DEX','+3'],['Stealth','DEX','+3'],
+    ['Arcana','INT','-1'],['History','INT','-1'],['Investigation','INT','-1'],['Nature','INT','+2'],['Religion','INT','-1'],
+    ['Animal Handling','WIS','+4'],['Insight','WIS','+7'],['Medicine','WIS','+4'],['Perception','WIS','+7'],['Survival','WIS','+7'],
+    ['Deception','CHA','+0'],['Intimidation','CHA','+0'],['Performance','CHA','+0'],['Persuasion','CHA','+0']
+  ].map(([name,ability,modifier])=>({name,ability,modifier})),
+  coreButtons:['summary','spiritTotem','wildShape','mightySummoner'],
+  traits:{
+    summary:{name:'Core Summary',source:'Character Sheet',description:'Lilothah Enakathil is a level 6 drow druid, Circle of the Shepherd, with Outlander (Exile) background. AC 16 with leather armor and shield; HP 45; speed 30 ft; proficiency +3; spell save DC 15; spell attack +7. Prepared druid spells allowed: 10 total. Current listed: 9, leaving 1 open prepared spell.'},
+    wildShape:{name:'Wild Shape',source:'Druid 2',description:'Action. Lilothah can assume the shape of a beast he has seen before. Uses: 2 per short or long rest. At level 6, maximum CR 1/2 and no flying speed. Duration up to 3 hours. He cannot cast spells in beast shape, but concentrating on a spell already cast is not broken by the transformation.'},
+    druidic:{name:'Druidic',source:'Druid 1',description:'Lilothah knows Druidic, the secret language of druids. He can speak it and use it to leave hidden messages. Druids automatically spot such messages. Others can spot the message with a DC 15 Wisdom (Perception) check but cannot decipher it without magic.'},
+    ritualCasting:{name:'Ritual Casting',source:'Druid Spellcasting',description:'Lilothah can cast a prepared druid spell as a ritual if the spell has the ritual tag.'},
+    spiritTotem:{name:'Spirit Totem',source:'Circle of the Shepherd 2',description:'Bonus action. Lilothah summons an incorporeal spirit to a point he can see within 60 feet. It creates a 30-foot-radius aura, lasts 1 minute, and can be moved up to 60 feet as a bonus action. He can use this once per short or long rest. Choose Bear, Hawk, or Unicorn spirit.'},
+    bearSpirit:{name:'Bear Spirit',source:'Spirit Totem',description:'When the Bear Spirit appears, chosen creatures in the aura gain 11 temporary hit points. Lilothah and allies also gain advantage on Strength checks and Strength saving throws while in the aura.'},
+    hawkSpirit:{name:'Hawk Spirit',source:'Spirit Totem',description:'Lilothah and allies have advantage on Wisdom (Perception) checks while in the aura. In addition, when a creature makes an attack roll against a target in the aura, Lilothah can use his reaction to grant advantage to that attack roll.'},
+    unicornSpirit:{name:'Unicorn Spirit',source:'Spirit Totem',description:'Lilothah and allies have advantage on checks to detect creatures in the aura. If Lilothah casts a spell using a spell slot that restores hit points, chosen creatures in the aura also regain 6 hit points.'},
+    mightySummoner:{name:'Mighty Summoner',source:'Circle of the Shepherd 6',description:'Beasts and fey summoned or created by Lilothah’s spells gain 2 extra hit points per Hit Die, and damage from their natural weapons counts as magical for overcoming immunity and resistance to nonmagical attacks and damage.'},
+    speechOfTheWoods:{name:'Speech of the Woods',source:'Circle of the Shepherd 2',description:'Lilothah can converse with beasts and many fey. He learns Sylvan. Beasts can understand his speech, and he can decipher their noises and motions, though this does not automatically make them friendly.'},
+    feyAncestry:{name:'Fey Ancestry',source:'Drow Elf',description:'Advantage on saving throws against being charmed, and magic cannot put Lilothah to sleep.'},
+    trance:{name:'Trance',source:'Elf',description:'Lilothah meditates deeply for 4 hours instead of sleeping and gains the same benefit a human would from 8 hours of sleep.'},
+    superiorDarkvision:{name:'Superior Darkvision',source:'Drow',description:'Lilothah has darkvision out to 120 feet.'},
+    sunlightSensitivity:{name:'Sunlight Sensitivity',source:'Drow',description:'Lilothah has disadvantage on attack rolls and sight-based Wisdom (Perception) checks when he, the target, or what he is trying to perceive is in direct sunlight.'},
+    drowMagic:{name:'Drow Magic',source:'Drow',description:'Lilothah knows dancing lights at will. He can cast faerie fire once per long rest and darkness once per long rest. Charisma is the spellcasting ability for these spells, with save DC 11.'},
+    feyTouched:{name:'Fey Touched',source:'Feat',description:'Wisdom increased by 1. Lilothah knows misty step and sleep. He can cast each once per long rest without a spell slot and can also cast them using spell slots. Wisdom is the spellcasting ability.'},
+    wanderer:{name:'Wanderer',source:'Outlander',description:'Lilothah has excellent memory for maps and geography and can recall the general layout of terrain, settlements, and other features. He can find food and fresh water for himself and up to five others when the land provides it.'},
+    proficiencies:{name:'Proficiencies',source:'Sheet Notes',description:'Saving throws: Intelligence and Wisdom. Skills: Athletics, Nature, Insight, Perception, Survival. Armor: light armor, medium armor, shields; druids will not wear armor or use shields made of metal. Weapons: clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears, plus drow weapon training with rapiers, shortswords, hand crossbows. Tools: herbalism kit. Languages: Common, Elvish, Undercommon, Sylvan, Druidic.'}
+  },
+  attacks:[
+    {name:'Scimitar',toHit:'+6',damage:'1d6 + 3',crit:'1d6',type:'Slashing',range:'5 ft',advantageButton:true,description:'Melee weapon attack using Dexterity. One target.'},
+    {name:'Thorn Whip',toHit:'+7',damage:'2d6',crit:'2d6',type:'Piercing',range:'30 ft',advantageButton:true,disButton:true,description:'Melee spell attack. On hit, if the target is Large or smaller, Lilothah can pull it up to 10 feet closer.'},
+    {name:'Healing Word',toHit:'',damage:'1d4 + 4',crit:'1d4',type:'Healing',range:'60 ft',description:'Bonus action healing. Use this roll as the healing amount when cast at 1st level; add 1d4 per slot level above 1st.'},
+    {name:'Goodberry Total',toHit:'',damage:'10',crit:'0',type:'Healing / berries',range:'Touch',description:'Creates up to ten berries. Each berry restores 1 HP and provides nourishment for one day. The roll result is fixed at 10 total berry HP.'},
+    {name:'Unicorn Spirit Healing Pulse',toHit:'',damage:'6',crit:'0',type:'Healing',range:'30-ft aura',description:'When Lilothah casts a spell using a spell slot that restores hit points, chosen creatures in the Unicorn Spirit aura regain 6 hit points.'}
+  ],
+  spells:[
+    {name:'Guidance',level:'Cantrip Divination',time:'1 action',range:'Touch',duration:'Concentration, up to 1 minute',components:'V, S',concentration:true,desc:'Touch one willing creature. Once before the spell ends, the target can roll 1d4 and add it to one ability check.'},
+    {name:'Shape Water',level:'Cantrip Transmutation',time:'1 action',range:'30 ft',duration:'Instantaneous or 1 hour',components:'S',desc:'Manipulate a 5-foot cube of water in simple ways: move/animate it, change color/opacity, freeze it, or create simple shapes.'},
+    {name:'Thorn Whip',level:'Cantrip Transmutation',time:'1 action',range:'30 ft',duration:'Instantaneous',components:'V, S, M',toHit:'+7',damage:'2d6',crit:'2d6',type:'Piercing',desc:'Melee spell attack. Hit: 2d6 piercing damage. If the target is Large or smaller, Lilothah can pull it up to 10 feet closer.'},
+    {name:'Entangle',level:'1st-level Conjuration',time:'1 action',range:'90 ft',duration:'Concentration, up to 1 minute',components:'V, S',concentration:true,saveDC:'15',save:'Strength',desc:'Grasping weeds and vines sprout in a 20-foot square. Creatures in the area make a Strength save or become restrained until the spell ends.'},
+    {name:'Goodberry',level:'1st-level Transmutation',time:'1 action',range:'Touch',duration:'Instantaneous',components:'V, S, M',desc:'Up to ten berries appear. A creature can use its action to eat one berry, restoring 1 HP. Each berry also provides enough nourishment for one day.'},
+    {name:'Healing Word',level:'1st-level Evocation',time:'1 bonus action',range:'60 ft',duration:'Instantaneous',components:'V',damage:'1d4 + 4',type:'Healing',desc:'A creature Lilothah can see regains 1d4 + 4 hit points at 1st level; add 1d4 per slot level above 1st.'},
+    {name:'Pass without Trace',level:'2nd-level Abjuration',time:'1 action',range:'Self',duration:'Concentration, up to 1 hour',components:'V, S, M',concentration:true,desc:'Lilothah and chosen creatures within 30 feet gain +10 to Dexterity (Stealth) checks and cannot be tracked except by magical means.'},
+    {name:'Spike Growth',level:'2nd-level Transmutation',time:'1 action',range:'150 ft',duration:'Concentration, up to 10 minutes',components:'V, S, M',concentration:true,damage:'2d4',type:'Piercing',desc:'A 20-foot-radius area becomes camouflaged spikes. A creature moving in or through the area takes 2d4 piercing damage for every 5 feet it travels.'},
+    {name:'Summon Beast',level:'2nd-level Conjuration',time:'1 action',range:'90 ft',duration:'Concentration, up to 1 hour',components:'V, S, M',concentration:true,desc:'Summon a bestial spirit. See the Summons section for quick cards and attacks. Mighty Summoner adds +2 HP per Hit Die and makes natural weapon damage magical.'},
+    {name:'Conjure Animals',level:'3rd-level Conjuration',time:'1 action',range:'60 ft',duration:'Concentration, up to 1 hour',components:'V, S',concentration:true,desc:'Summon fey spirits that take beast forms chosen by the DM. Mighty Summoner adds +2 HP per Hit Die and magical natural weapon damage.'},
+    {name:'Dispel Magic',level:'3rd-level Abjuration',time:'1 action',range:'120 ft',duration:'Instantaneous',components:'V, S',desc:'Choose one creature, object, or magical effect. Spells of 3rd level or lower on the target end. For higher-level spells, make a Wisdom ability check against DC 10 + spell level.'},
+    {name:'Revivify',level:'3rd-level Necromancy',time:'1 action',range:'Touch',duration:'Instantaneous',components:'V, S, M',desc:'Touch a creature that died within the last minute. It returns to life with 1 hit point. Cannot restore missing body parts.'},
+    {name:'Dancing Lights',level:'Drow Cantrip Evocation',time:'1 action',range:'120 ft',duration:'Concentration, up to 1 minute',components:'V, S, M',concentration:true,desc:'Create up to four torch-sized lights or one vaguely humanoid form of light.'},
+    {name:'Faerie Fire',level:'Drow 1st-level Evocation',time:'1 action',range:'60 ft',duration:'Concentration, up to 1 minute',components:'V',concentration:true,saveDC:'11',save:'Dexterity',desc:'Each object and creature in a 20-foot cube that fails a Dexterity save sheds dim light. Attack rolls against affected creatures have advantage if the attacker can see them.'},
+    {name:'Darkness',level:'Drow 2nd-level Evocation',time:'1 action',range:'60 ft',duration:'Concentration, up to 10 minutes',components:'V, M',concentration:true,desc:'Magical darkness spreads from a point to fill a 15-foot-radius sphere.'},
+    {name:'Misty Step',level:'Fey Touched 2nd-level Conjuration',time:'1 bonus action',range:'Self',duration:'Instantaneous',components:'V',desc:'Briefly surrounded by silvery mist, Lilothah teleports up to 30 feet to an unoccupied space he can see.'},
+    {name:'Sleep',level:'Fey Touched 1st-level Enchantment',time:'1 action',range:'90 ft',duration:'1 minute',components:'V, S, M',damage:'5d8',type:'Sleep HP affected',desc:'Roll 5d8. Creatures within 20 feet of a point are affected in ascending order of current HP, ignoring unconscious creatures.'}
+  ],
+  equipment:`Wooden shield; scimitar; leather armor; explorer’s pack; druidic focus: yew wand; herbalism kit; hunting trap; trophy from a beast Lilothah killed; traveler’s clothes; pouch; 200 gp; Gold Acorn; 2 healing potions; Fresco Key; burglar’s lantern/flask (?) noted uncertain; 14 flasks of oil; rope removed/used (?) noted uncertain.\n\nCampaign note visible on the physical sheet: “Sent message to mom/aunt (?)” — uncertain reading.`,
+  summons:[
+    {name:'Bestial Spirit — Land',source:'Summon Beast',kind:'bestial-spirit',tags:['Summoned Beast','Land','Mighty Summoner'],meta:'AC 13 at 2nd-level slot; HP per spell + Mighty Summoner; speed 30 ft, climb 30 ft',short:'Pack Tactics. Natural weapon damage counts as magical from Mighty Summoner.',description:'Bestial Spirit summoned by summon beast. Use the spell slot level to determine exact AC/HP/damage. With Mighty Summoner, add +2 HP per Hit Die and natural weapon damage counts as magical.',attack:{name:'Maul (2nd-level slot)',toHit:'+7',damage:'1d8 + 6',crit:'1d8',type:'Piercing',range:'5 ft',description:'Use +7 spell attack. Damage is 1d8 + 4 Wisdom modifier + 2nd-level spell slot. If cast with a 3rd-level slot, use +7 damage instead of +6.'}},
+    {name:'Bestial Spirit — Air',source:'Summon Beast',kind:'bestial-spirit',tags:['Summoned Beast','Air','Mighty Summoner'],meta:'AC 13 at 2nd-level slot; HP per spell + Mighty Summoner; fly 60 ft; flyby-style skirmisher',short:'Air spirit form. Natural weapon damage counts as magical from Mighty Summoner.',description:'Bestial Spirit summoned by summon beast. Use the spell slot level to determine exact AC/HP/damage. With Mighty Summoner, add +2 HP per Hit Die and natural weapon damage counts as magical.',attack:{name:'Maul (2nd-level slot)',toHit:'+7',damage:'1d8 + 6',crit:'1d8',type:'Piercing',range:'5 ft',description:'Use +7 spell attack. Damage is 1d8 + 4 Wisdom modifier + 2nd-level spell slot. If cast with a 3rd-level slot, use +7 damage instead of +6.'}},
+    {name:'Bestial Spirit — Water',source:'Summon Beast',kind:'bestial-spirit',tags:['Summoned Beast','Water','Mighty Summoner'],meta:'AC 13 at 2nd-level slot; HP per spell + Mighty Summoner; swim 30 ft; aquatic form',short:'Water spirit form. Natural weapon damage counts as magical from Mighty Summoner.',description:'Bestial Spirit summoned by summon beast. Use the spell slot level to determine exact AC/HP/damage. With Mighty Summoner, add +2 HP per Hit Die and natural weapon damage counts as magical.',attack:{name:'Maul (2nd-level slot)',toHit:'+7',damage:'1d8 + 6',crit:'1d8',type:'Piercing',range:'5 ft',description:'Use +7 spell attack. Damage is 1d8 + 4 Wisdom modifier + 2nd-level spell slot. If cast with a 3rd-level slot, use +7 damage instead of +6.'}},
+    {name:'Conjure Animals — DM-chosen Beasts',source:'Conjure Animals',kind:'conjure-animals',tags:['Fey spirits','Mighty Summoner'],meta:'Choose one CR 2 or lower; two CR 1 or lower; four CR 1/2 or lower; or eight CR 1/4 or lower, per spell/DM.',short:'Use the individual beast stat blocks. Add Mighty Summoner: +2 HP per Hit Die and magical natural weapon damage.',description:'Conjure animals summons fey spirits in beast forms chosen by the DM. Apply Mighty Summoner to any summoned beasts: +2 HP per Hit Die and magical natural weapon damage.'}
+  ]
+};
+renderSheet(LILOTHAH);
+
+</script></body></html>
